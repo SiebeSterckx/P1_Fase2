@@ -1,0 +1,9 @@
+name: Generate cache
+on: 
+  create:
+# when a ref is made, this workflow will run. caches are bound to a ref, so this is the best way to do it.
+jobs:
+  classic-build:
+    uses: Projectweek-2022-2023/workflows/.github/workflows/generate-cache.yml@main
+    secrets: inherit
+    

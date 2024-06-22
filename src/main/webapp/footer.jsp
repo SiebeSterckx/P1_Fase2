@@ -1,0 +1,1 @@
+<footer class="text-white p-3">Group 10</footer>

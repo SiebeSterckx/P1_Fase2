@@ -1,0 +1,4 @@
+FROM tomcat:9
+COPY ./target/*.war /usr/local/tomcat/webapps/ROOT.war
+LABEL org.opencontainers.image.description="do not use this one lol"
+CMD ["catalina.sh", "run"]

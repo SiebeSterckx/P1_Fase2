@@ -1,0 +1,19 @@
+name: testing lol 
+on: 
+  workflow_dispatch:
+    inputs:
+      image-name:
+        description: 'Name of the image to deploy'
+        required: true
+        default: 'canary'
+      tag:
+        description: 'Tag of the image to deploy'
+        required: true
+        default: 'latest'
+
+jobs:
+  async-build:
+    uses: Projectweek-2022-2023/workflows/.github/workflows/async-build.yml@main
+    with:
+      image-name: ${{ github.event.inputs.image-name }}
+      tag: ${{ github.event.inputs.tag }}

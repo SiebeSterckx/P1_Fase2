@@ -1,0 +1,14 @@
+name: Deploy to production
+on:
+  push:
+    branches:
+      - main
+# This workflow will build a docker container, publish it to GitHub Packages, and deploy it to the production environment.
+# Reason to retest everything is in case another merge to master happened while the tests were running.
+jobs:
+  async-build:
+    uses: Projectweek-2022-2023/workflows/.github/workflows/async-build.yml@main
+    with:
+      image-name: stable
+      tag: build-${{ github.run_number }}
+    secrets: inherit
